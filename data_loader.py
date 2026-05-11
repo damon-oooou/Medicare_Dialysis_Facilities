@@ -1,7 +1,12 @@
+import os
 import pandas as pd
 
 def load_data():
-    df = pd.read_csv("cleaned_dialysis_mortality.csv")
+    BASE_DIR = os.path.dirname(__file__)
+
+    csv_path = os.path.join(BASE_DIR, "cleaned_dialysis_mortality.csv")
+    
+    df = pd.read_csv(csv_path)
 
     df = df.rename(columns={
         "Provider_Name": "facility",
